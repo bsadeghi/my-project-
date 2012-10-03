@@ -50,27 +50,3 @@ active proctype Alice() {
      otherwise.  */
 
   (data.key == keyA) && (data.content1 == nonceA);
-
-  /* Obtain Bob's nonce */
-  
-  pnonce = data.content2;
-
-  /* Prepare the last message */  
-  messageAB.key = pkey;
-  messageAB.content1 = pnonce; 
-  messageAB.content2 = 0;  /* content2 is not used in the last message,
-                              just set it to 0 */
-
-  
-  /* Send the prepared messaage */
-  network ! msg3 (partnerA, messageAB);
-
-  
-  /* and last - update the auxilary status variable */
-  statusA = ok;
-}
-
-active proctype Bob() {
-   printf("placeholder for Bob\n")
-}
- 
